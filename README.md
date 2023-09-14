@@ -1,1 +1,1 @@
-# CardMaker
+# Repo for Project Activity class
