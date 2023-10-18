@@ -18,6 +18,7 @@ struct Ball
     sf::CircleShape shape;
     sf::Vector2f speed;
 };
+
 struct PRNG
 {
     std::mt19937 engine;
@@ -45,7 +46,8 @@ sf::Color getAverageColor(PRNG &generator)
     do
     {
         secondColor = colors[getRandomInt(generator, 0, colorCount - 1)];
-    } while (firstColor == secondColor);
+    }
+	while (firstColor == secondColor);
 
     sf::Uint8 newR = std::sqrt((firstColor.r * firstColor.r + secondColor.r * secondColor.r) / 2);
     sf::Uint8 newG = std::sqrt((firstColor.g * firstColor.g + secondColor.g * secondColor.g) / 2);
@@ -64,7 +66,8 @@ sf::Vector2f getRandomSpeed(PRNG &generator, float min, float max)
 {
     return {
         getRandomFloat(generator, min, max),
-        getRandomFloat(generator, min, max)};
+        getRandomFloat(generator, min, max)
+	};
 }
 
 void initBalls(PRNG &generator, std::vector<Ball> &balls)
