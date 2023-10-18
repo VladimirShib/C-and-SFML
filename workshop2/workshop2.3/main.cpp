@@ -1,4 +1,4 @@
-//Moving balls with collision. Each ball speed is random
+//Moving balls with collision. Each ball's speed is random
 
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
@@ -17,6 +17,7 @@ struct Ball
     sf::CircleShape shape;
     sf::Vector2f speed;
 };
+
 struct PRNG
 {
     std::mt19937 engine;
