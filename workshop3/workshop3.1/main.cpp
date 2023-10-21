@@ -2,7 +2,6 @@
 Write initials in a ball. The ball jumps in a loop.
 */
 
-#include <SFML/System.hpp>
 #include <SFML/Window.hpp>
 #include "source.h"
 
@@ -25,7 +24,7 @@ void pollEvents(sf::RenderWindow &window)
     }
 }
 
-void redrawFrame(sf::RenderWindow &window, Ball ball)
+void redrawFrame(sf::RenderWindow &window, const Ball &ball)
 {
     window.clear(sf::Color(0xFF, 0xFF, 0xFF));
     window.draw(ball.shape);
@@ -35,7 +34,9 @@ void redrawFrame(sf::RenderWindow &window, Ball ball)
 
 int main()
 {
-sf::ContextSettings settings;
+    sf::Clock clock;
+
+    sf::ContextSettings settings;
     settings.antialiasingLevel = 8;
     sf::RenderWindow window(
         sf::VideoMode({WINDOW_WIDTH, WINDOW_HEIGHT}),
@@ -47,7 +48,7 @@ sf::ContextSettings settings;
     while (window.isOpen())
     {
         pollEvents(window);
-        //update(balls, clock);
+        update(ball, clock);
         redrawFrame(window, ball);
     }
 }
